@@ -9,6 +9,8 @@ function PhieuXuatKho() {
     nam: "",
     so: "",
     nguoiNhan: "",
+    lyDo: "",
+    sdt: "",
     theoSo: "",
     ngayThang: "",
     diaDiemXuat: "",
@@ -93,64 +95,31 @@ function PhieuXuatKho() {
           <div
             style={{
               display: "flex",
-              justifyContent: "space-between",
+              flexDirection: "column",
+              alignItems: "center",
               marginBottom: "1.5rem",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
-              <img
-                src={logoImg}
-                alt="Logo"
-                style={{
-                  maxWidth: "100px",
-                  height: "auto",
-                }}
-              />
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
-              >
-                <h3
-                  style={{
-                    margin: 0,
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    color: "#333",
-                    letterSpacing: "0.5px",
-                  }}
-                >
-                  CLB CẤP CỨU
-                </h3>
-                <h3
-                  style={{
-                    margin: 0,
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    color: "#333",
-                    letterSpacing: "0.5px",
-                  }}
-                >
-                  NGOẠI VIỆN - PMC
-                </h3>
-              </div>
-            </div>
-            <div style={{ textAlign: "right", flex: 1 }}>
-              <h2 style={{ margin: 0, fontSize: "16px", fontWeight: "bold" }}>
-                Mẫu số 04 - VT
-              </h2>
-              <p style={{ margin: 0, fontSize: "11px", fontStyle: "italic" }}>
-                (Ban hành kèm theo Thông tư số 88/2021/TT-BTC
-              </p>
-              <p style={{ margin: 0, fontSize: "11px", fontStyle: "italic" }}>
-                ngày 11 tháng 10 năm 2021 của Bộ trưởng
-              </p>
-              <p style={{ margin: 0, fontSize: "11px", fontStyle: "italic" }}>
-                Bộ Tài chính)
-              </p>
-            </div>
+            <h3
+              style={{
+                margin: 0,
+                marginBottom: "10px",
+                fontSize: "16px",
+                fontWeight: "bold",
+                color: "#333",
+                letterSpacing: "0.5px",
+              }}
+            >
+              CLB CẤP CỨU NGOẠI VIỆN - PMC
+            </h3>
+            <img
+              src={logoImg}
+              alt="Logo"
+              style={{
+                maxWidth: "100px",
+                height: "auto",
+              }}
+            />
           </div>
 
           <h2
@@ -209,6 +178,28 @@ function PhieuXuatKho() {
               value={formData.nguoiNhan}
               onChange={handleChange}
               style={{ width: "calc(100% - 250px)", marginLeft: "5px" }}
+            />
+          </p>
+
+          <p style={{ fontSize: "13px", marginBottom: "8px" }}>
+            - Lý do:
+            <input
+              type="text"
+              name="lyDo"
+              value={formData.lyDo}
+              onChange={handleChange}
+              style={{ width: "calc(100% - 100px)", marginLeft: "5px" }}
+            />
+          </p>
+
+          <p style={{ fontSize: "13px", marginBottom: "8px" }}>
+            - SĐT:
+            <input
+              type="text"
+              name="sdt"
+              value={formData.sdt}
+              onChange={handleChange}
+              style={{ width: "calc(100% - 100px)", marginLeft: "5px" }}
             />
           </p>
         </div>

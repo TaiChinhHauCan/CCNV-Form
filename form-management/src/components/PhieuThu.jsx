@@ -41,64 +41,31 @@ function PhieuThu() {
           <div
             style={{
               display: "flex",
-              justifyContent: "space-between",
+              flexDirection: "column",
+              alignItems: "center",
               marginBottom: "1.5rem",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
-              <img
-                src={logoImg}
-                alt="Logo"
-                style={{
-                  maxWidth: "100px",
-                  height: "auto",
-                }}
-              />
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
-              >
-                <h3
-                  style={{
-                    margin: 0,
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    color: "#333",
-                    letterSpacing: "0.5px",
-                  }}
-                >
-                  CLB CẤP CỨU
-                </h3>
-                <h3
-                  style={{
-                    margin: 0,
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    color: "#333",
-                    letterSpacing: "0.5px",
-                  }}
-                >
-                  NGOẠI VIỆN - PMC
-                </h3>
-              </div>
-            </div>
-            <div style={{ textAlign: "right", flex: 1 }}>
-              <h2 style={{ margin: 0, fontSize: "16px", fontWeight: "bold" }}>
-                Mẫu số 01 - TT
-              </h2>
-              <p style={{ margin: 0, fontSize: "11px", fontStyle: "italic" }}>
-                (Ban hành kèm theo Thông tư số 88/2021/TT-BTC
-              </p>
-              <p style={{ margin: 0, fontSize: "11px", fontStyle: "italic" }}>
-                ngày 11 tháng 10 năm 2021 của Bộ trưởng
-              </p>
-              <p style={{ margin: 0, fontSize: "11px", fontStyle: "italic" }}>
-                Bộ Tài chính)
-              </p>
-            </div>
+            <h3
+              style={{
+                margin: 0,
+                marginBottom: "10px",
+                fontSize: "16px",
+                fontWeight: "bold",
+                color: "#333",
+                letterSpacing: "0.5px",
+              }}
+            >
+              CLB CẤP CỨU NGOẠI VIỆN - PMC
+            </h3>
+            <img
+              src={logoImg}
+              alt="Logo"
+              style={{
+                maxWidth: "100px",
+                height: "auto",
+              }}
+            />
           </div>
 
           <h2
@@ -114,62 +81,37 @@ function PhieuThu() {
 
           <div
             style={{
-              display: "flex",
-              justifyContent: "space-between",
+              textAlign: "center",
               fontSize: "13px",
               marginBottom: "1.5rem",
             }}
           >
-            <div>
-              <span>
-                Ngày
-                <input
-                  type="text"
-                  name="ngay"
-                  value={formData.ngay}
-                  onChange={handleChange}
-                  style={{ width: "40px", margin: "0 5px" }}
-                />
-                tháng
-                <input
-                  type="text"
-                  name="thang"
-                  value={formData.thang}
-                  onChange={handleChange}
-                  style={{ width: "40px", margin: "0 5px" }}
-                />
-                năm
-                <input
-                  type="text"
-                  name="nam"
-                  value={formData.nam}
-                  onChange={handleChange}
-                  style={{ width: "60px", margin: "0 5px" }}
-                />
-              </span>
-            </div>
-            <div style={{ textAlign: "right" }}>
-              <p style={{ margin: 0 }}>
-                Quyền số:
-                <input
-                  type="text"
-                  name="quyenSo"
-                  value={formData.quyenSo}
-                  onChange={handleChange}
-                  style={{ width: "80px", marginLeft: "5px" }}
-                />
-              </p>
-              <p style={{ margin: 0 }}>
-                Số:
-                <input
-                  type="text"
-                  name="so"
-                  value={formData.so}
-                  onChange={handleChange}
-                  style={{ width: "100px", marginLeft: "5px" }}
-                />
-              </p>
-            </div>
+            <span>
+              Ngày
+              <input
+                type="text"
+                name="ngay"
+                value={formData.ngay}
+                onChange={handleChange}
+                style={{ width: "40px", margin: "0 5px" }}
+              />
+              tháng
+              <input
+                type="text"
+                name="thang"
+                value={formData.thang}
+                onChange={handleChange}
+                style={{ width: "40px", margin: "0 5px" }}
+              />
+              năm
+              <input
+                type="text"
+                name="nam"
+                value={formData.nam}
+                onChange={handleChange}
+                style={{ width: "60px", margin: "0 5px" }}
+              />
+            </span>
           </div>
         </div>
 
@@ -237,55 +179,6 @@ function PhieuThu() {
               lineHeight: "1.4",
             }}
           />
-
-          <div
-            style={{
-              borderTop: "1px dotted black",
-              paddingTop: "10px",
-              marginTop: "15px",
-            }}
-          ></div>
-
-          <p
-            style={{
-              fontSize: "13px",
-              marginBottom: "10px",
-              marginTop: "15px",
-            }}
-          >
-            - Kèm theo:
-            <input
-              type="text"
-              name="kemTheo"
-              value={formData.kemTheo}
-              onChange={handleChange}
-              style={{ width: "calc(100% - 500px)", marginLeft: "5px" }}
-            />
-            Chứng từ gốc: Ngày
-            <input
-              type="text"
-              name="ngayChungTu"
-              value={formData.ngayChungTu}
-              onChange={handleChange}
-              style={{ width: "40px", margin: "0 5px" }}
-            />
-            tháng
-            <input
-              type="text"
-              name="thangChungTu"
-              value={formData.thangChungTu}
-              onChange={handleChange}
-              style={{ width: "40px", margin: "0 5px" }}
-            />
-            năm
-            <input
-              type="text"
-              name="namChungTu"
-              value={formData.namChungTu}
-              onChange={handleChange}
-              style={{ width: "60px", margin: "0 5px" }}
-            />
-          </p>
         </div>
 
         <div className="signature-section">

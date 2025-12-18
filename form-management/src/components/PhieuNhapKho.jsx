@@ -9,6 +9,8 @@ function PhieuNhapKho() {
     nam: "",
     so: "",
     nguoiGiao: "",
+    lyDo: "",
+    sdt: "",
     theoSo: "",
     ngayThang: "",
     diaDiemNhap: "",
@@ -93,64 +95,31 @@ function PhieuNhapKho() {
           <div
             style={{
               display: "flex",
-              justifyContent: "space-between",
+              flexDirection: "column",
+              alignItems: "center",
               marginBottom: "1.5rem",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
-              <img
-                src={logoImg}
-                alt="Logo"
-                style={{
-                  maxWidth: "100px",
-                  height: "auto",
-                }}
-              />
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
-              >
-                <h3
-                  style={{
-                    margin: 0,
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    color: "#333",
-                    letterSpacing: "0.5px",
-                  }}
-                >
-                  CLB CẤP CỨU
-                </h3>
-                <h3
-                  style={{
-                    margin: 0,
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    color: "#333",
-                    letterSpacing: "0.5px",
-                  }}
-                >
-                  NGOẠI VIỆN - PMC
-                </h3>
-              </div>
-            </div>
-            <div style={{ textAlign: "right", flex: 1 }}>
-              <h2 style={{ margin: 0, fontSize: "16px", fontWeight: "bold" }}>
-                Mẫu số 03 - VT
-              </h2>
-              <p style={{ margin: 0, fontSize: "11px", fontStyle: "italic" }}>
-                (Ban hành kèm theo Thông tư số 88/2021/TT-BTC
-              </p>
-              <p style={{ margin: 0, fontSize: "11px", fontStyle: "italic" }}>
-                ngày 11 tháng 10 năm 2021 của Bộ trưởng
-              </p>
-              <p style={{ margin: 0, fontSize: "11px", fontStyle: "italic" }}>
-                Bộ Tài chính)
-              </p>
-            </div>
+            <h3
+              style={{
+                margin: 0,
+                marginBottom: "10px",
+                fontSize: "16px",
+                fontWeight: "bold",
+                color: "#333",
+                letterSpacing: "0.5px",
+              }}
+            >
+              CLB CẤP CỨU NGOẠI VIỆN - PMC
+            </h3>
+            <img
+              src={logoImg}
+              alt="Logo"
+              style={{
+                maxWidth: "100px",
+                height: "auto",
+              }}
+            />
           </div>
 
           <h2
@@ -213,37 +182,25 @@ function PhieuNhapKho() {
           </p>
 
           <p style={{ fontSize: "13px", marginBottom: "8px" }}>
-            - Theo
+            - Lý do:
             <input
               type="text"
-              name="theoSo"
-              value={formData.theoSo}
+              name="lyDo"
+              value={formData.lyDo}
               onChange={handleChange}
-              style={{
-                width: "80px",
-                margin: "0 5px",
-                border: "none",
-                borderBottom: "1px dotted black",
-                background: "transparent",
-                padding: "2px",
-              }}
+              style={{ width: "calc(100% - 100px)", marginLeft: "5px" }}
             />
-            số
+          </p>
+
+          <p style={{ fontSize: "13px", marginBottom: "8px" }}>
+            - SĐT:
             <input
               type="text"
-              name="ngayThang"
-              value={formData.ngayThang}
+              name="sdt"
+              value={formData.sdt}
               onChange={handleChange}
-              style={{
-                width: "200px",
-                margin: "0 5px",
-                border: "none",
-                borderBottom: "1px dotted black",
-                background: "transparent",
-                padding: "2px",
-              }}
+              style={{ width: "calc(100% - 100px)", marginLeft: "5px" }}
             />
-            ngày ..... tháng ..... năm .....
           </p>
 
           <p style={{ fontSize: "13px", marginBottom: "15px" }}>
