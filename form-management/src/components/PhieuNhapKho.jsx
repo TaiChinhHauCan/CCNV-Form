@@ -17,23 +17,19 @@ function PhieuNhapKho() {
     tongSoTien: "",
     soChungTu: "",
     soTienChuCuoi: "",
+    tieuDePhu: "",
+    tongYeuCau: "",
+    tongThucNhap: "",
+    tongDonGia: "",
+    tongThanhTien: "",
   });
 
   const [items, setItems] = useState([
     {
-      stt: "A",
-      tenNhanHieu: "B",
-      donViTinh: "C",
-      theoChungTu: "D",
-      thucNhap: "1",
-      donGia: "2",
-      thanhTien: "3",
-    },
-    {
       stt: "",
       tenNhanHieu: "",
       donViTinh: "",
-      theoChungTu: "",
+      yeuCau: "",
       thucNhap: "",
       donGia: "",
       thanhTien: "",
@@ -95,37 +91,79 @@ function PhieuNhapKho() {
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
               marginBottom: "1.5rem",
             }}
           >
-            <h3
+            <div
               style={{
-                margin: 0,
-                marginBottom: "10px",
-                fontSize: "16px",
-                fontWeight: "bold",
-                color: "#333",
-                letterSpacing: "0.5px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
               }}
             >
-              CLB CẤP CỨU NGOẠI VIỆN - PMC
-            </h3>
-            <img
-              src={logoImg}
-              alt="Logo"
+              <img
+                src={logoImg}
+                alt="Logo"
+                style={{
+                  maxWidth: "100px",
+                  height: "auto",
+                  marginBottom: "10px",
+                }}
+              />
+              <h3
+                style={{
+                  margin: 0,
+                  fontSize: "16px",
+                  fontWeight: "bold",
+                  color: "#333",
+                  letterSpacing: "0.5px",
+                }}
+              >
+                CLB CẤP CỨU NGOẠI VIỆN - PMC
+              </h3>
+            </div>
+
+            <div
               style={{
-                maxWidth: "100px",
-                height: "auto",
+                textAlign: "right",
+                fontSize: "13px",
               }}
-            />
+            >
+              <p style={{ margin: "5px 0" }}>
+                Ngày
+                <input
+                  type="text"
+                  name="ngay"
+                  value={formData.ngay}
+                  onChange={handleChange}
+                  style={{ width: "40px", margin: "0 5px" }}
+                />
+                tháng
+                <input
+                  type="text"
+                  name="thang"
+                  value={formData.thang}
+                  onChange={handleChange}
+                  style={{ width: "40px", margin: "0 5px" }}
+                />
+                năm
+                <input
+                  type="text"
+                  name="nam"
+                  value={formData.nam}
+                  onChange={handleChange}
+                  style={{ width: "60px", margin: "0 5px" }}
+                />
+              </p>
+            </div>
           </div>
 
           <h2
             style={{
               fontSize: "24px",
-              margin: "1.5rem 0",
+              margin: "1.5rem 0 0.5rem 0",
               textAlign: "center",
               fontWeight: "bold",
             }}
@@ -133,45 +171,37 @@ function PhieuNhapKho() {
             PHIẾU NHẬP KHO
           </h2>
 
-          <div
-            style={{
-              textAlign: "center",
-              fontSize: "13px",
-              marginBottom: "1rem",
-            }}
-          >
-            <p style={{ margin: "5px 0" }}>
-              Ngày
-              <input
-                type="text"
-                name="ngay"
-                value={formData.ngay}
-                onChange={handleChange}
-                style={{ width: "40px", margin: "0 5px" }}
-              />
-              tháng
-              <input
-                type="text"
-                name="thang"
-                value={formData.thang}
-                onChange={handleChange}
-                style={{ width: "40px", margin: "0 5px" }}
-              />
-              năm
-              <input
-                type="text"
-                name="nam"
-                value={formData.nam}
-                onChange={handleChange}
-                style={{ width: "60px", margin: "0 5px" }}
-              />
-            </p>
+          <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+            <textarea
+              name="tieuDePhu"
+              value={formData.tieuDePhu}
+              onChange={handleChange}
+              placeholder="Nhập tiêu đề phụ (nếu có)"
+              rows="1"
+              style={{
+                fontSize: "20px",
+                fontWeight: "bold",
+                textAlign: "center",
+                border: "none",
+                borderBottom: "2px solid #ddd",
+                background: "transparent",
+                padding: "0.5rem",
+                width: "80%",
+                maxWidth: "600px",
+                resize: "none",
+                overflow: "hidden",
+              }}
+              onInput={(e) => {
+                e.target.style.height = "auto";
+                e.target.style.height = e.target.scrollHeight + "px";
+              }}
+            />
           </div>
         </div>
 
         <div className="form-section">
           <p style={{ fontSize: "13px", marginBottom: "8px" }}>
-            - Họ và tên người giao hàng:
+            - Họ và tên người nhập kho:
             <input
               type="text"
               name="nguoiGiao"
@@ -249,12 +279,13 @@ function PhieuNhapKho() {
               {items.map((item, index) => (
                 <tr key={index}>
                   <td>
-                    <input
-                      type="text"
+                    <textarea
                       value={item.stt}
                       onChange={(e) =>
                         handleItemChange(index, "stt", e.target.value)
                       }
+                      rows="1"
+                      style={{ textAlign: "center", resize: "vertical" }}
                     />
                   </td>
                   <td>
@@ -269,48 +300,53 @@ function PhieuNhapKho() {
                   </td>
 
                   <td>
-                    <input
-                      type="text"
+                    <textarea
                       value={item.donViTinh}
                       onChange={(e) =>
                         handleItemChange(index, "donViTinh", e.target.value)
                       }
+                      rows="1"
+                      style={{ textAlign: "center", resize: "vertical" }}
                     />
                   </td>
                   <td>
-                    <input
-                      type="text"
+                    <textarea
                       value={item.theoChungTu}
                       onChange={(e) =>
                         handleItemChange(index, "theoChungTu", e.target.value)
                       }
+                      rows="1"
+                      style={{ textAlign: "center", resize: "vertical" }}
                     />
                   </td>
                   <td>
-                    <input
-                      type="text"
+                    <textarea
                       value={item.thucNhap}
                       onChange={(e) =>
                         handleItemChange(index, "thucNhap", e.target.value)
                       }
+                      rows="1"
+                      style={{ textAlign: "center", resize: "vertical" }}
                     />
                   </td>
                   <td>
-                    <input
-                      type="text"
+                    <textarea
                       value={item.donGia}
                       onChange={(e) =>
                         handleItemChange(index, "donGia", e.target.value)
                       }
+                      rows="1"
+                      style={{ textAlign: "center", resize: "vertical" }}
                     />
                   </td>
                   <td>
-                    <input
-                      type="text"
+                    <textarea
                       value={item.thanhTien}
                       onChange={(e) =>
                         handleItemChange(index, "thanhTien", e.target.value)
                       }
+                      rows="1"
+                      style={{ textAlign: "center", resize: "vertical" }}
                     />
                   </td>
                   <td>
@@ -332,10 +368,42 @@ function PhieuNhapKho() {
                 >
                   Cộng
                 </td>
-                <td>x</td>
-                <td>x</td>
-                <td>x</td>
-                <td>x</td>
+                <td>
+                  <input
+                    type="text"
+                    name="tongYeuCau"
+                    value={formData.tongYeuCau}
+                    onChange={handleChange}
+                    style={{ width: "100%", textAlign: "center" }}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="tongThucNhap"
+                    value={formData.tongThucNhap}
+                    onChange={handleChange}
+                    style={{ width: "100%", textAlign: "center" }}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="tongDonGia"
+                    value={formData.tongDonGia}
+                    onChange={handleChange}
+                    style={{ width: "100%", textAlign: "center" }}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="tongThanhTien"
+                    value={formData.tongThanhTien}
+                    onChange={handleChange}
+                    style={{ width: "100%", textAlign: "center" }}
+                  />
+                </td>
                 <td></td>
               </tr>
             </tbody>
@@ -350,7 +418,7 @@ function PhieuNhapKho() {
 
         <div className="signature-section">
           <div className="signature-box">
-            <h4>THỦ KHO</h4>
+            <h4>NGƯỜI LẬP BIỂU</h4>
             <p>(Ký, họ tên)</p>
             <input
               type="text"
@@ -368,7 +436,7 @@ function PhieuNhapKho() {
             />
           </div>
           <div className="signature-box">
-            <h4>NGƯỜI LẬP BIỂU</h4>
+            <h4>THỦ KHO</h4>
             <p>(Ký, họ tên)</p>
             <input
               type="text"

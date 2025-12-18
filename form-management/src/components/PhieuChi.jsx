@@ -21,6 +21,7 @@ function PhieuChi() {
     thangChungTu: "",
     namChungTu: "",
     soTienChuCuoi: "",
+    tieuDePhu: "",
   });
 
   const handleChange = (e) => {
@@ -41,37 +42,79 @@ function PhieuChi() {
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
               marginBottom: "1.5rem",
             }}
           >
-            <h3
+            <div
               style={{
-                margin: 0,
-                marginBottom: "10px",
-                fontSize: "16px",
-                fontWeight: "bold",
-                color: "#333",
-                letterSpacing: "0.5px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
               }}
             >
-              CLB CẤP CỨU NGOẠI VIỆN - PMC
-            </h3>
-            <img
-              src={logoImg}
-              alt="Logo"
+              <img
+                src={logoImg}
+                alt="Logo"
+                style={{
+                  maxWidth: "100px",
+                  height: "auto",
+                  marginBottom: "10px",
+                }}
+              />
+              <h3
+                style={{
+                  margin: 0,
+                  fontSize: "16px",
+                  fontWeight: "bold",
+                  color: "#333",
+                  letterSpacing: "0.5px",
+                }}
+              >
+                CLB CẤP CỨU NGOẠI VIỆN - PMC
+              </h3>
+            </div>
+
+            <div
               style={{
-                maxWidth: "100px",
-                height: "auto",
+                textAlign: "right",
+                fontSize: "13px",
               }}
-            />
+            >
+              <span>
+                Ngày
+                <input
+                  type="text"
+                  name="ngay"
+                  value={formData.ngay}
+                  onChange={handleChange}
+                  style={{ width: "40px", margin: "0 5px" }}
+                />
+                tháng
+                <input
+                  type="text"
+                  name="thang"
+                  value={formData.thang}
+                  onChange={handleChange}
+                  style={{ width: "40px", margin: "0 5px" }}
+                />
+                năm
+                <input
+                  type="text"
+                  name="nam"
+                  value={formData.nam}
+                  onChange={handleChange}
+                  style={{ width: "60px", margin: "0 5px" }}
+                />
+              </span>
+            </div>
           </div>
 
           <h2
             style={{
               fontSize: "24px",
-              margin: "1.5rem 0",
+              margin: "1.5rem 0 0.5rem 0",
               textAlign: "center",
               fontWeight: "bold",
             }}
@@ -79,45 +122,37 @@ function PhieuChi() {
             PHIẾU CHI
           </h2>
 
-          <div
-            style={{
-              textAlign: "center",
-              fontSize: "13px",
-              marginBottom: "1.5rem",
-            }}
-          >
-            <span>
-              Ngày
-              <input
-                type="text"
-                name="ngay"
-                value={formData.ngay}
-                onChange={handleChange}
-                style={{ width: "40px", margin: "0 5px" }}
-              />
-              tháng
-              <input
-                type="text"
-                name="thang"
-                value={formData.thang}
-                onChange={handleChange}
-                style={{ width: "40px", margin: "0 5px" }}
-              />
-              năm
-              <input
-                type="text"
-                name="nam"
-                value={formData.nam}
-                onChange={handleChange}
-                style={{ width: "60px", margin: "0 5px" }}
-              />
-            </span>
+          <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+            <textarea
+              name="tieuDePhu"
+              value={formData.tieuDePhu}
+              onChange={handleChange}
+              placeholder="Nhập tiêu đề phụ (nếu có)"
+              rows="1"
+              style={{
+                fontSize: "20px",
+                fontWeight: "bold",
+                textAlign: "center",
+                border: "none",
+                borderBottom: "2px solid #ddd",
+                background: "transparent",
+                padding: "0.5rem",
+                width: "80%",
+                maxWidth: "600px",
+                resize: "none",
+                overflow: "hidden",
+              }}
+              onInput={(e) => {
+                e.target.style.height = "auto";
+                e.target.style.height = e.target.scrollHeight + "px";
+              }}
+            />
           </div>
         </div>
 
         <div className="form-section">
           <p style={{ fontSize: "13px", marginBottom: "10px" }}>
-            - Họ và tên người nhận tiền:
+            - Họ và tên người chi tiền:
             <input
               type="text"
               name="nguoiNhan"
@@ -128,7 +163,7 @@ function PhieuChi() {
           </p>
 
           <p style={{ fontSize: "13px", marginBottom: "10px" }}>
-            - Địa chỉ:
+            - SĐT:
             <input
               type="text"
               name="diaChiNguoiNhan"
@@ -218,28 +253,6 @@ function PhieuChi() {
               }}
             />
           </div>
-        </div>
-
-        <div style={{ marginTop: "2rem" }}>
-          <p style={{ fontSize: "13px", marginBottom: "5px" }}>
-            Đã nhận đủ số tiền (viết bằng chữ):
-          </p>
-          <textarea
-            name="soTienChuCuoi"
-            value={formData.soTienChuCuoi}
-            onChange={handleChange}
-            rows="2"
-            style={{
-              width: "100%",
-              padding: "0.5rem",
-              border: "1px dotted black",
-              background: "transparent",
-              resize: "vertical",
-              minHeight: "50px",
-              fontSize: "0.95rem",
-              lineHeight: "1.4",
-            }}
-          />
         </div>
       </div>
 

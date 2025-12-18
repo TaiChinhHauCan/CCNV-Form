@@ -62,6 +62,7 @@ export const exportToPDF = async (elementId, fileName) => {
       const computedStyle = window.getComputedStyle(textarea);
       div.style.fontFamily = computedStyle.fontFamily;
       div.style.fontSize = computedStyle.fontSize;
+      div.style.fontWeight = computedStyle.fontWeight;
       div.style.lineHeight = computedStyle.lineHeight;
       div.style.padding = computedStyle.padding;
       div.style.textAlign = computedStyle.textAlign;
