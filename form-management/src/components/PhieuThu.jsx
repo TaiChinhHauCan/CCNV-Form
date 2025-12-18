@@ -152,7 +152,7 @@ function PhieuThu() {
 
         <div className="form-section">
           <p style={{ fontSize: "13px", marginBottom: "10px" }}>
-            - Họ và tên người nộp tiền:
+            - Họ và tên người thu tiền:
             <input
               type="text"
               name="nguoiNop"
