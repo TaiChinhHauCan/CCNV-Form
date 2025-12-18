@@ -433,9 +433,17 @@ td textarea:focus {
     background: transparent !important;
   }
 
+  /* Reduce Số lượng column widths in print */
+  table th.quantity-column {
+    width: 35px !important;
+    max-width: 35px !important;
+    min-width: 35px !important;
+    font-size: 0.75rem !important;
+  }
+
   /* Hide delete column in print */
-  table th:last-child,
-  table td:last-child {
+  table th.delete-column,
+  table td.delete-column {
     display: none !important;
   }
 }

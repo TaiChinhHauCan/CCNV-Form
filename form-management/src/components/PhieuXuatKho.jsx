@@ -189,7 +189,8 @@ function PhieuXuatKho() {
                 width: "80%",
                 maxWidth: "600px",
                 resize: "none",
-                overflow: "hidden",
+                overflow: "visible",
+                minHeight: "auto",
               }}
               onInput={(e) => {
                 e.target.style.height = "auto";
@@ -241,7 +242,7 @@ function PhieuXuatKho() {
                 <th rowSpan="2" style={{ width: "40px" }}>
                   STT
                 </th>
-                <th rowSpan="2" style={{ minWidth: "150px" }}>
+                <th rowSpan="2" style={{ minWidth: "200px" }}>
                   Tên, nhãn hiệu, quy cách, phẩm chất vật liệu, dụng cụ, sản
                   phẩm, hàng hoá
                 </th>
@@ -255,13 +256,21 @@ function PhieuXuatKho() {
                 <th rowSpan="2" style={{ width: "90px" }}>
                   Thành tiền
                 </th>
-                <th rowSpan="2" style={{ width: "70px" }}>
+                <th
+                  rowSpan="2"
+                  style={{ width: "70px" }}
+                  className="delete-column"
+                >
                   Xóa
                 </th>
               </tr>
               <tr>
-                <th style={{ width: "70px" }}>Yêu cầu</th>
-                <th style={{ width: "70px" }}>Thực xuất</th>
+                <th style={{ width: "50px" }} className="quantity-column">
+                  Yêu cầu
+                </th>
+                <th style={{ width: "50px" }} className="quantity-column">
+                  Thực xuất
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -338,7 +347,7 @@ function PhieuXuatKho() {
                       style={{ textAlign: "center", resize: "vertical" }}
                     />
                   </td>
-                  <td>
+                  <td className="delete-column">
                     {index > 0 && (
                       <button
                         className="btn btn-danger"
@@ -358,42 +367,58 @@ function PhieuXuatKho() {
                   Cộng
                 </td>
                 <td>
-                  <input
-                    type="text"
+                  <textarea
                     name="tongYeuCau"
                     value={formData.tongYeuCau}
                     onChange={handleChange}
-                    style={{ width: "100%", textAlign: "center" }}
+                    rows="1"
+                    style={{
+                      width: "100%",
+                      textAlign: "center",
+                      resize: "vertical",
+                    }}
                   />
                 </td>
                 <td>
-                  <input
-                    type="text"
+                  <textarea
                     name="tongThucXuat"
                     value={formData.tongThucXuat}
                     onChange={handleChange}
-                    style={{ width: "100%", textAlign: "center" }}
+                    rows="1"
+                    style={{
+                      width: "100%",
+                      textAlign: "center",
+                      resize: "vertical",
+                    }}
                   />
                 </td>
                 <td>
-                  <input
-                    type="text"
+                  <textarea
                     name="tongDonGia"
                     value={formData.tongDonGia}
                     onChange={handleChange}
-                    style={{ width: "100%", textAlign: "center" }}
+                    rows="1"
+                    style={{
+                      width: "100%",
+                      textAlign: "center",
+                      resize: "vertical",
+                    }}
                   />
                 </td>
                 <td>
-                  <input
-                    type="text"
+                  <textarea
                     name="tongThanhTien"
                     value={formData.tongThanhTien}
                     onChange={handleChange}
-                    style={{ width: "100%", textAlign: "center" }}
+                    rows="1"
+                    style={{
+                      width: "100%",
+                      textAlign: "center",
+                      resize: "vertical",
+                    }}
                   />
                 </td>
-                <td></td>
+                <td className="delete-column"></td>
               </tr>
             </tbody>
           </table>

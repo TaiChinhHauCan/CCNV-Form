@@ -140,7 +140,8 @@ function PhieuThu() {
                 width: "80%",
                 maxWidth: "600px",
                 resize: "none",
-                overflow: "hidden",
+                overflow: "visible",
+                minHeight: "auto",
               }}
               onInput={(e) => {
                 e.target.style.height = "auto";

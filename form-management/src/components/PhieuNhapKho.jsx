@@ -29,7 +29,7 @@ function PhieuNhapKho() {
       stt: "",
       tenNhanHieu: "",
       donViTinh: "",
-      yeuCau: "",
+      theoChungTu: "",
       thucNhap: "",
       donGia: "",
       thanhTien: "",
@@ -189,7 +189,8 @@ function PhieuNhapKho() {
                 width: "80%",
                 maxWidth: "600px",
                 resize: "none",
-                overflow: "hidden",
+                overflow: "visible",
+                minHeight: "auto",
               }}
               onInput={(e) => {
                 e.target.style.height = "auto";
@@ -252,7 +253,7 @@ function PhieuNhapKho() {
                 <th rowSpan="2" style={{ width: "40px" }}>
                   STT
                 </th>
-                <th rowSpan="2" style={{ minWidth: "150px" }}>
+                <th rowSpan="2" style={{ minWidth: "200px" }}>
                   Tên, nhãn hiệu, quy cách, phẩm chất vật liệu, dụng cụ, sản
                   phẩm, hàng hoá
                 </th>
@@ -266,13 +267,24 @@ function PhieuNhapKho() {
                 <th rowSpan="2" style={{ width: "90px" }}>
                   Thành tiền
                 </th>
-                <th rowSpan="2" style={{ width: "70px" }}>
+                <th
+                  rowSpan="2"
+                  style={{ width: "70px" }}
+                  className="delete-column"
+                >
                   Xóa
                 </th>
               </tr>
               <tr>
-                <th style={{ width: "70px" }}>Theo chứng từ</th>
-                <th style={{ width: "70px" }}>Thực nhập</th>
+                <th style={{ width: "50px" }} className="quantity-column">
+                  Theo chứng từ
+                </th>
+                <th
+                  style={{ width: "50px", display: "table-cell" }}
+                  className="quantity-column"
+                >
+                  Thực nhập
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -319,7 +331,7 @@ function PhieuNhapKho() {
                       style={{ textAlign: "center", resize: "vertical" }}
                     />
                   </td>
-                  <td>
+                  <td style={{ display: "table-cell" }}>
                     <textarea
                       value={item.thucNhap}
                       onChange={(e) =>
@@ -349,7 +361,7 @@ function PhieuNhapKho() {
                       style={{ textAlign: "center", resize: "vertical" }}
                     />
                   </td>
-                  <td>
+                  <td className="delete-column">
                     {index > 0 && (
                       <button
                         className="btn btn-danger"
@@ -369,42 +381,58 @@ function PhieuNhapKho() {
                   Cộng
                 </td>
                 <td>
-                  <input
-                    type="text"
+                  <textarea
                     name="tongYeuCau"
                     value={formData.tongYeuCau}
                     onChange={handleChange}
-                    style={{ width: "100%", textAlign: "center" }}
+                    rows="1"
+                    style={{
+                      width: "100%",
+                      textAlign: "center",
+                      resize: "vertical",
+                    }}
                   />
                 </td>
-                <td>
-                  <input
-                    type="text"
+                <td style={{ display: "table-cell" }}>
+                  <textarea
                     name="tongThucNhap"
                     value={formData.tongThucNhap}
                     onChange={handleChange}
-                    style={{ width: "100%", textAlign: "center" }}
+                    rows="1"
+                    style={{
+                      width: "100%",
+                      textAlign: "center",
+                      resize: "vertical",
+                    }}
                   />
                 </td>
                 <td>
-                  <input
-                    type="text"
+                  <textarea
                     name="tongDonGia"
                     value={formData.tongDonGia}
                     onChange={handleChange}
-                    style={{ width: "100%", textAlign: "center" }}
+                    rows="1"
+                    style={{
+                      width: "100%",
+                      textAlign: "center",
+                      resize: "vertical",
+                    }}
                   />
                 </td>
                 <td>
-                  <input
-                    type="text"
+                  <textarea
                     name="tongThanhTien"
                     value={formData.tongThanhTien}
                     onChange={handleChange}
-                    style={{ width: "100%", textAlign: "center" }}
+                    rows="1"
+                    style={{
+                      width: "100%",
+                      textAlign: "center",
+                      resize: "vertical",
+                    }}
                   />
                 </td>
-                <td></td>
+                <td className="delete-column"></td>
               </tr>
             </tbody>
           </table>

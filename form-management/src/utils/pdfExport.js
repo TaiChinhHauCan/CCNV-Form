@@ -17,9 +17,9 @@ export const exportToPDF = async (elementId, fileName) => {
     buttons.forEach((btn) => (btn.style.display = "none"));
     tableActions.forEach((ta) => (ta.style.display = "none"));
 
-    // Hide delete column
-    const deleteHeaders = element.querySelectorAll("table th:last-child");
-    const deleteCells = element.querySelectorAll("table td:last-child");
+    // Hide delete column using class selector
+    const deleteHeaders = element.querySelectorAll("table th.delete-column");
+    const deleteCells = element.querySelectorAll("table td.delete-column");
     deleteHeaders.forEach((th) => (th.style.display = "none"));
     deleteCells.forEach((td) => (td.style.display = "none"));
 
